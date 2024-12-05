@@ -1,61 +1,76 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfólio de ZD4, Desenvolvedor Full Stack.">
-  <title>ZD4 - Desenvolvedor Full Stack</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Hassan Zeidam - Desenvolvedor Full-Stack</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Portfólio de Hassan Zeidam, Desenvolvedor Full-Stack">
+  <meta name="keywords" content="Hassan Zeidam, Desenvolvedor, Full-Stack, Hacker, Web">
+  <meta name="author" content="Hassan Zeidam">
 </head>
-
 <body>
-  <header class="header">
+  <header>
     <div class="container">
-      <h1 class="title">ZD4</h1>
-      <p class="subtitle">Desenvolvedor Full Stack</p>
+      <h1>Hassan Zeidam</h1>
+      <nav>
+        <ul>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#projects">Projetos</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <main class="main-content">
-    <section class="about">
+  <main>
+    <section id="hero">
+      <div class="container">
+        <h2>Olá, eu sou <span class="highlight">Hassan Zeidam</span></h2>
+        <p>Desenvolvedor Full-Stack criando soluções modernas e eficazes para micro e médio empreendedores.</p>
+        <a href="#projects" class="button">Veja meus projetos</a>
+      </div>
+    </section>
+
+    <section id="about">
       <div class="container">
         <h2>Sobre Mim</h2>
-        <p>
-          Olá! Eu sou o <strong>ZD4</strong>, um desenvolvedor full stack apaixonado por criar soluções inovadoras
-          e funcionais. Tenho experiência em desenvolvimento front-end, back-end . Adoro resolver problemas e explorar novas tecnologias.
-        </p>
+        <p>Sou um desenvolvedor Full-Stack apaixonado por tecnologia. Trabalho com ferramentas modernas como React, Node.js e MongoDB.</p>
+        <div class="skills">
+          <span>React</span>
+          <span>Node.js</span>
+          <span>MongoDB</span>
+          <span>Tailwind CSS</span>
+        </div>
       </div>
     </section>
 
-    <section class="skills">
+    <section id="projects">
       <div class="container">
-        <h2>Minhas Habilidades</h2>
+        <h2>Meus Projetos</h2>
         <ul>
-          <li>Front-End: HTML, CSS, JavaScript, React</li>
-          <li>Back-End: Node.js, Express.js, APIs RESTful</li>
-          <li>Banco de Dados: MongoDB, SQL</li>
-          <li>Ferramentas: Git, Docker, CI/CD</li>
+          <li>
+            <h3>Sistema de Gerenciamento</h3>
+            <p>Um sistema para gerenciar recursos humanos.</p>
+            <a href="https://github.com/usuario/projeto1" target="_blank">Ver no GitHub</a>
+          </li>
+          <li>
+            <h3>E-commerce API</h3>
+            <p>Uma API RESTful para e-commerces.</p>
+            <a href="https://github.com/usuario/projeto2" target="_blank">Ver no GitHub</a>
+          </li>
         </ul>
-      </div>
-    </section>
-
-    <section class="contact">
-      <div class="container">
-        <h2>Contato</h2>
-        <p>
-          Quer trabalhar comigo ou tem algum projeto interessante? Entre em contato!
-        </p>
-        <a href="mailto:zd4@exemplo.com" class="btn">Entre em Contato</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="container">
-      <p>&copy; 2024 ZD4. Todos os direitos reservados.</p>
+      <p>&copy; 2024 Hassan Zeidam. Todos os direitos reservados.</p>
+      <a href="https://wa.me/5511999999999" class="button" target="_blank">Fale comigo no WhatsApp</a>
     </div>
   </footer>
-</body>
 
+  <script src="script.js"></script>
+</body>
 </html>
