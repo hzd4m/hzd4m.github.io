@@ -1,70 +1,146 @@
+/* :root with HSB colors */
 :root {
-    --bg-color: #000;
-    --primary-color: #00ff00;
-    --text-color: #fff;
-    --highlight-color: #0f0;
-  }
-  
-  body {
-    margin: 0;
-    font-family: 'Fira Code', monospace;
-    background-color: var(--bg-color);
-    color: var(--primary-color);
-    line-height: 1.6;
-  }
-  
-  h1, h2, h3 {
-    color: var(--text-color);
-  }
-  
-  a {
-    text-decoration: none;
-    color: var(--primary-color);
-    transition: color 0.3s ease;
-  }
-  
-  a:hover {
-    color: var(--highlight-color);
-  }
-  
-  .button {
-    display: inline-block;
-    background: var(--primary-color);
-    color: var(--bg-color);
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: transform 0.3s ease, background 0.3s ease;
-  }
-  
-  .button:hover {
-    transform: scale(1.1);
-    background: var(--highlight-color);
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .skills span {
-    display: inline-block;
-    background: var(--bg-color);
-    border: 1px solid var(--primary-color);
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 3px;
-    font-size: 0.9rem;
-  }
-  
-  .skills span:hover {
-    background: var(--primary-color);
-    color: var(--bg-color);
-  }
-  
-  footer {
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid var(--primary-color);
-  }
-  
+  --bg-gradient-start: hsb(210, 50%, 20%);
+  --bg-gradient-end: hsb(210, 70%, 40%);
+  --text-color: hsb(0, 0%, 95%);
+  --accent-color: hsb(120, 60%, 50%);
+  --button-hover: hsb(120, 80%, 40%);
+  --border-color: hsb(0, 0%, 70%);
+  --interactive-bg: hsb(210, 40%, 30%);
+  --interactive-hover: hsb(210, 60%, 50%);
+}
+
+body {
+  margin: 0;
+  font-family: 'Fira Code', monospace;
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+  color: var(--text-color);
+  line-height: 1.6;
+  transition: background 0.5s ease-in-out;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: var(--bg-gradient-end);
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+h1, h2, h3 {
+  color: var(--text-color);
+  margin: 20px 0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.button {
+  display: inline-block;
+  background: var(--accent-color);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.button:hover {
+  transform: scale(1.1);
+  background: var(--button-hover);
+}
+
+/* Section-specific styles */
+#hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+#about, #projects, #interactive {
+  padding: 50px 20px;
+  margin: 20px 0;
+  background: var(--interactive-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skills span {
+  display: inline-block;
+  background: var(--interactive-hover);
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 3px;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+.skills span:hover {
+  background: var(--accent-color);
+  color: var(--bg-gradient-start);
+}
+
+#interactive .interactive-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}
+
+#interactive .interactive-item {
+  background: var(--interactive-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1 1 calc(30% - 20px);
+  text-align: center;
+  transition: transform 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+#interactive .interactive-item:hover {
+  transform: translateY(-10px);
+  background: var(--interactive-hover);
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: var(--bg-gradient-end);
+  color: var(--text-color);
+  border-top: 1px solid var(--border-color);
+}
