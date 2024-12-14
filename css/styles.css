@@ -117,24 +117,44 @@ nav a:hover::after {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 #interactive .interactive-item {
+  flex: 1 1 calc(30% - 20px);
+  padding: 20px;
   background: var(--interactive-bg);
   color: var(--text-color);
-  border: 1px solid var(--border-color);
-  padding: 20px;
-  border-radius: 8px;
-  flex: 1 1 calc(30% - 20px);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.3s, background 0.3s;
   cursor: pointer;
+  transition: transform 0.3s, background 0.3s, border-color 0.3s;
 }
 
 #interactive .interactive-item:hover {
-  transform: translateY(-10px);
+  transform: scale(1.05);
   background: var(--interactive-hover);
+  border-color: var(--accent-color);
+}
+
+#interactive .interactive-item:focus {
+  outline: 2px solid var(--accent-color);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  #interactive .interactive-item {
+    flex: 1 1 calc(45% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  #interactive .interactive-item {
+    flex: 1 1 100%;
+  }
 }
 
 footer {
