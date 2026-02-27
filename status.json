@@ -1,0 +1,13 @@
+{
+  "id": "portfolio_hzd4m",
+  "nome": "Portfolio Hzd4m",
+  "tipo": "projeto_pessoal",
+  "status": "concluido",
+  "deploy": {
+    "plataforma": "GitHub Pages",
+    "repo": "hzd4m/portfolio",
+    "workflow": ".github/workflows/deploy.yml",
+    "url_preview": "https://hzd4m.github.io/portfolio"
+  },
+  "concluido_em": "2026-02-27"
+}
