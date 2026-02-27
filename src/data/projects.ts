@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: "medcortex",
     title: "MedCortex",
-    description: "Sistema de gestão médica desenvolvido com foco em eficiência e experiência do usuário. Arquitetura moderna com tecnologias de ponta.",
+    description: "Sistema de gestão médica onde React encontra Node. PostgreSQL como backbone, UX que médicos merecem. Código limpo, complexidade escondida.",
     technologies: ["React", "Node.js", "PostgreSQL", "AWS"],
     featured: true,
     hasLink: false,
@@ -12,7 +12,7 @@ export const projects: Project[] = [
   {
     id: "medcortex-factory",
     title: "MedCortex Factory AWS",
-    description: "Infraestrutura completa na AWS para o sistema MedCortex. Pipeline de CI/CD, ECS Fargate, RDS, ElastiCache e monitoramento avançado.",
+    description: "AWS bem-feita: ECS Fargate, RDS PostgreSQL, ElastiCache Redis. CI/CD via GitHub Actions. Infra como código — Terraform. Monitore com CloudWatch.",
     technologies: ["AWS", "Terraform", "Docker", "CI/CD"],
     featured: true,
     hasLink: false,
