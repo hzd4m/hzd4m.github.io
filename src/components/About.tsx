@@ -108,27 +108,23 @@ export default function About() {
             className="space-y-6"
           >
             <motion.p
-              className="font-body text-lg text-offwhite leading-relaxed"
+              className="font-mono text-lg text-quark leading-relaxed"
               variants={prefersReducedMotion ? undefined : scrollReveal}
             >
-              Acadêmico de{" "}
-              <motion.span
-                className="text-quark"
-                whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
-              >
-                Ciência da Computação
-              </motion.span>{" "}
-              com paixão por construir software que funciona quando mais importa.
-              Desenvolvedor Full Stack com experiência em múltiplas linguagens e
-              paradigmas.
+              while (café) &#123;
+              <br />
+              &nbsp;&nbsp;codigo++;
+              <br />
+              &nbsp;&nbsp;ideias++;
+              <br />
+              &#125;
             </motion.p>
             <motion.p
               className="font-body text-dim leading-relaxed"
               variants={prefersReducedMotion ? undefined : scrollReveal}
             >
-              Especializado em desenvolvimento de sistemas robustos, arquitetura
-              de software e resolução de problemas complexos. Acredito que bom
-              código é como uma boa filosofia: simples, elegante e funcional.
+              Acadêmico de Ciência da Computação que acredita: bom código nasce de
+              uma boa xícara. Aqui a filosofia encontra a engenharia.
             </motion.p>
 
             {/* Passion cards */}
