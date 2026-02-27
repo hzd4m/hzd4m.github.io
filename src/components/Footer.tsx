@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import { scrollReveal } from "@/animation/variants";
 
 const socialLinks = [
   {
@@ -41,50 +42,110 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
-    <footer className="py-16 px-6 bg-carbon border-t border-muted">
-      <div className="max-w-6xl mx-auto">
+    <footer className="py-16 px-6 bg-carbon border-t border-muted/30 relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-quark/5 rounded-full blur-[100px]" />
+
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-center md:text-left">
-            <a
+          <motion.div
+            variants={prefersReducedMotion ? undefined : scrollReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="text-center md:text-left"
+          >
+            <motion.a
               href="#home"
-              className="font-display text-3xl text-quark tracking-wider"
+              className="font-display text-3xl text-quark tracking-wider inline-block relative group"
+              whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
+              whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
             >
-              HZD4M
-            </a>
+              <span className="relative z-10">HZD4M</span>
+              <motion.span
+                className="absolute inset-0 bg-quark/20 rounded-lg blur-lg opacity-0 group-hover:opacity-100 transition-opacity"
+                layoutId="footer-logo-glow"
+              />
+            </motion.a>
             <p className="font-body text-dim mt-2">
               Desenvolvedor de Software & Ideias
             </p>
-          </div>
+          </motion.div>
 
-          <div className="flex gap-6">
-            {socialLinks.map((link) => (
+          {/* Social links with enhanced interactions */}
+          <motion.div
+            className="flex gap-4"
+            variants={prefersReducedMotion ? undefined : scrollReveal}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+          >
+            {socialLinks.map((link, index) => (
               <motion.a
                 key={link.name}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="text-dim hover:text-quark transition-colors p-2"
+                variants={prefersReducedMotion ? undefined : {
+                  hidden: { opacity: 0, y: 10 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 + index * 0.05 }}
+                whileHover={prefersReducedMotion ? {} : {
+                  scale: 1.15,
+                  y: -3,
+                }}
+                whileTap={prefersReducedMotion ? {} : { scale: 0.9 }}
+                className="text-dim hover:text-quark transition-colors p-3 rounded-lg hover:bg-muted/30 border border-transparent hover:border-muted/50 group"
                 aria-label={link.name}
               >
-                {link.icon}
+                <motion.span
+                  animate={prefersReducedMotion ? {} : {
+                    rotate: [0, 5, -5, 0],
+                  }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  {link.icon}
+                </motion.span>
               </motion.a>
             ))}
-          </div>
+          </motion.div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-muted flex flex-col md:flex-row justify-between items-center gap-4">
+        <motion.div
+          variants={prefersReducedMotion ? undefined : scrollReveal}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mt-12 pt-8 border-t border-muted/30 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
           <p className="font-body text-sm text-dim">
             © {new Date().getFullYear()} Hzd4m. Todos os direitos reservados.
           </p>
           <p className="font-body text-sm text-dim">
             Built with{" "}
-            <span className="text-electric">Next.js</span> +{" "}
-            <span className="text-quark">QUARK</span>
+            <motion.span
+              className="text-electric"
+              whileHover={prefersReducedMotion ? {} : { scale: 1.1 }}
+            >
+              Next.js
+            </motion.span>{" "}
+            +{" "}
+            <motion.span
+              className="text-quark"
+              whileHover={prefersReducedMotion ? {} : { scale: 1.1 }}
+            >
+              QUARK
+            </motion.span>
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );
