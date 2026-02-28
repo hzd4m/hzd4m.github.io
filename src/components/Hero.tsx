@@ -100,7 +100,7 @@ export default function Hero() {
               delay: prefersReducedMotion ? 0 : 0.1,
             }}
           >
-            ZD<span className="text-quark drop-shadow-[0_0_40px_rgba(0,245,255,0.6)]">4M</span>
+            ZD<span className="text-quark drop-shadow-[0_0_40px_rgba(0,245,255,0.6)]">4</span>
           </motion.span>
         </motion.h1>
 
