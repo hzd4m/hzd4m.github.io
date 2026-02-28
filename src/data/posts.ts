@@ -2,23 +2,26 @@ import { Post } from "@/types";
 
 export const posts: Post[] = [
   {
-    slug: "primeiro-post",
-    title: "O Futuro da Programacao",
-    excerpt: "Reflexoes sobre o caminho da computacao e como a IA esta transformando a forma como escrevemos codigo.",
+    slug: "futuro-programacao",
+    title: "Por que código ainda importa?",
+    excerpt:
+      "Em um mundo de IA gerando código, me pergunto: o que nos faz únicos como programadores? Reflexões de um acadêmico.",
     date: "2026-02-27",
     category: "Tecnologia",
   },
   {
-    slug: "segundo-post",
-    title: "Arquitetura de Sistemas",
-    excerpt: "Lessons learned construindo sistemas distribuidos em escala. Patterns, anti-patterns e boas praticas.",
+    slug: "arquitetura-sistemas",
+    title: "Sistemas são Reflexos",
+    excerpt:
+      "Cada linha de código revela como seu autor pensa. Arquitetura não é sobre tools — é sobre pensamento.",
     date: "2026-02-20",
     category: "Arquitetura",
   },
   {
-    slug: "terceiro-post",
-    title: "A Filosofia do Cafe",
-    excerpt: "Por que todo bom desenvolvedor precisa de uma boa xicara de cafe e tempo para pensar.",
+    slug: "filosofia-cafe",
+    title: "O Café que Me Faz Pensar",
+    excerpt:
+      "Cada xícara é um ritual. Antes do código, a reflexão. Por que os melhores desenvolvedores têm rotinas curiosas.",
     date: "2026-02-15",
     category: "Filosofia",
   },
