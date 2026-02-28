@@ -2,21 +2,20 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
-import { scrollReveal, cardHover } from "@/animation/variants";
 
 const passions = [
   {
-    icon: "☕",
-    name: "Café",
+    icon: "COFFEE",
+    name: "Cafe",
     description: "O combustivel de toda boa ideia",
   },
   {
-    icon: "💻",
+    icon: "CODE",
     name: "Tecnologia",
     description: "Transformando codigo em impacto",
   },
   {
-    icon: "🤔",
+    icon: "THINK",
     name: "Filosofia",
     description: "Pensamento profundo sobre sistemas",
   },
@@ -32,16 +31,12 @@ export default function About() {
       id="about"
       className="py-32 px-6 bg-muted/10 relative overflow-hidden"
     >
-      {/* Decorative elements */}
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-quark/5 rounded-full blur-[80px] -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-px h-32 bg-gradient-to-t from-quark/20 to-transparent" />
-
       <div className="max-w-6xl mx-auto">
         <motion.div
-          variants={prefersReducedMotion ? undefined : scrollReveal}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
           <h2 className="font-display text-5xl md:text-6xl text-offwhite mb-4">
@@ -50,23 +45,19 @@ export default function About() {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Avatar section */}
           <motion.div
-            variants={prefersReducedMotion ? undefined : scrollReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="flex justify-center"
           >
             <div className="relative">
-              {/* Glow effect */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-quark/20 to-electric/20 rounded-2xl blur-xl"
                 animate={prefersReducedMotion ? {} : { scale: [1, 1.05, 1] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
-
-              {/* Main avatar */}
               <motion.div
                 className="relative w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-muted/40 to-muted/20 rounded-2xl border border-quark/30 flex items-center justify-center backdrop-blur-sm"
                 whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
@@ -80,8 +71,6 @@ export default function About() {
                   H4
                 </motion.div>
               </motion.div>
-
-              {/* Floating badge */}
               <motion.div
                 className="absolute -bottom-4 -right-4 w-24 h-24 bg-carbon/80 rounded-xl border border-quark/30 flex items-center justify-center backdrop-blur-md"
                 animate={
@@ -94,58 +83,60 @@ export default function About() {
                 }
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               >
-                <span className="font-mono text-quark text-lg">&lt;/&gt;</span>
+                <span className="font-mono text-quark text-lg">{'< />'}</span>
               </motion.div>
             </div>
           </motion.div>
 
-          {/* Content section */}
           <motion.div
-            variants={prefersReducedMotion ? undefined : scrollReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
             className="space-y-6"
           >
             <motion.p
               className="font-mono text-lg text-quark leading-relaxed"
-              variants={prefersReducedMotion ? undefined : scrollReveal}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
             >
-              while (café) &#123;
+              while (cafe) {'{'}
               <br />
               &nbsp;&nbsp;codigo++;
               <br />
               &nbsp;&nbsp;ideias++;
               <br />
-              &#125;
+              {'}'}
             </motion.p>
             <motion.p
               className="font-body text-dim leading-relaxed"
-              variants={prefersReducedMotion ? undefined : scrollReveal}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
             >
               Acadêmico de Ciência da Computação que acredita: bom código nasce de
               uma boa xícara. Aqui a filosofia encontra a engenharia.
             </motion.p>
 
-            {/* Passion cards */}
             <div className="grid sm:grid-cols-3 gap-4 pt-4">
               {passions.map((passion, index) => (
                 <motion.div
                   key={passion.name}
-                  variants={prefersReducedMotion ? undefined : scrollReveal}
-                  initial="hidden"
-                  whileInView="visible"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
+                  transition={{ delay: index * 0.1 }}
                   whileHover={prefersReducedMotion ? {} : { y: -8, scale: 1.02 }}
                   className="text-center p-4 bg-carbon/50 rounded-xl border border-muted/30 hover:border-quark/40 hover:bg-carbon/80 transition-all cursor-default group"
                 >
                   <motion.div
                     className="text-3xl mb-2"
-                    whileHover={prefersReducedMotion ? {} : { scale: 1.15, rotate: 5 })}
-                    transition={{ type: "spring", stiffness: 400 }}
+                    whileHover={prefersReducedMotion ? {} : { scale: 1.15, rotate: 5 }}
                   >
-                    {passion.icon}
+                    {passion.icon === "COFFEE" && "☕"}
+                    {passion.icon === "CODE" && "💻"}
+                    {passion.icon === "THINK" && "🤔"}
                   </motion.div>
                   <h4 className="font-display text-lg text-offwhite group-hover:text-quark transition-colors">
                     {passion.name}
