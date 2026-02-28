@@ -92,7 +92,7 @@ export default function Hero() {
           transition={{ duration: prefersReducedMotion ? 0.1 : 0.8 }}
         >
           <motion.span
-            className="inline-block text-quark drop-shadow-[0_0_40px_rgba(0,245,255,0.6)]"
+            className="inline-block"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -100,18 +100,7 @@ export default function Hero() {
               delay: prefersReducedMotion ? 0 : 0.1,
             }}
           >
-            HZD
-          </motion.span>
-          <motion.span
-            className="inline-block text-dim/60"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: prefersReducedMotion ? 0.1 : 0.6,
-              delay: prefersReducedMotion ? 0 : 0.3,
-            }}
-          >
-            4M
+            ZD<span className="text-quark drop-shadow-[0_0_40px_rgba(0,245,255,0.6)]">4M</span>
           </motion.span>
         </motion.h1>
 
